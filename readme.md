@@ -1,3 +1,3 @@
 War Game
 
-build with react
+built with react
