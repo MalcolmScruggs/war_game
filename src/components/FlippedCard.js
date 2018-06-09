@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Suits, Ranks } from './cards/CardConstants'
+import { Suits, Ranks } from '../cards/CardConstants'
 
 class FlippedCard extends Component {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     suit: this.props.suit,
-        //     rank: this.props.rank,
-        // }
     }
 
     render() {
