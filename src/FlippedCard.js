@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Suits, Ranks } from './CardConstants'
+import { Suits, Ranks } from './cards/CardConstants'
 
 class FlippedCard extends Component {
     constructor(props) {

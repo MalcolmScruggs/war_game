@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { Button } from 'react-bootstrap'
 import FlippedCard from './FlippedCard';
-import { Suits, Ranks, RankValues } from './CardConstants';
+import { Suits, Ranks, RankValues } from './cards/CardConstants';
+import { initialState } from './reducers/warReducer.js';
 
 const GAME_STATES = ['INITIAL', 'RUNNING', 'OVER'];
 
@@ -37,37 +38,17 @@ class App extends Component {
 
         this.setState(() => {
             return {
-                player1_cards: deck.slice(0, 28),
+                player1_cards: deck.slice(0, 26),
                 player1_discard: [],
-                player2_cards: deck.slice(28),
+                player2_cards: deck.slice(26),
                 player2_discard: [],
                 gameState: 'RUNNING'
             }
         });
     };
 
-    /**
-     * Shuffle array with Fisher-Yates shuffle. Done via mutation.
-     *
-     * @param array
-     */
-    shuffleArray = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    };
-
-    computeNextGameState = () => {
-        console.log('computing next game state');
-        if (this.state.gameState === 'INITIAL' || this.state.gameState === 'OVER') {
-            console.log('starting game');
-            this.setupGame();
-            return;
-        }
-    };
-
     render() {
+        console.log(initialState);
         if (this.state.gameState === 'INITIAL' || this.state.gameState === 'OVER') {
             return this.renderInitialGameState();
         } else {
